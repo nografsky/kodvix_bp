@@ -1,0 +1,15 @@
+import { Outlet } from 'react-router-dom'
+import Header from './Header'
+import Footer from './Footer'
+
+export default function MainLayout() {
+    return (
+        <div>
+            <Header />
+            <main className="relative z-0 grid min-h-screen place-items-center p-8">
+                <Outlet/>
+            </main>
+            <Footer/>
+        </div>
+    )
+}

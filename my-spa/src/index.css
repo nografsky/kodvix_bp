@@ -1,68 +1,92 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* Подключаем Tailwind v4 — всё, конфиг не нужен */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* Пример CSS-first кастомизации темы (новое в v4) */
+@theme {
+  --color-bg-brand: #0A121B;
+  --color-bg-brand-2: #101a3a;
+  --color-block-10: rgba(192, 188, 255, 0.10);
+  --color-theme-1: #437BFF;
+  --color-theme-2: #7022FF;
+  --color-theme-3: #06F3FF;
+  --color-theme-4: rgba(192, 188, 255, 0.30);
+  --color-theme-5: rgba(67, 123, 255, 0.10);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  --radius-5xl: 4rem;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --font-rubik: "Rubik", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-raleway: "Raleway", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer components {
+  .container {
+    margin-inline: auto; /* центрирование */
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+*{
+  @apply transition-all duration-300;
+}
+
+body{
+  @apply relative min-h-screen bg-[#0b1020] text-white font-rubik;
+}
+
+body::before{
+  content: "";
+  @apply fixed inset-0 -z-10 bg-top bg-no-repeat;
+  @apply bg-[100%_auto] bg-[url('./assets/img/background/bg_desktop.png')];
+}
+
+.rounded-brand-32-64{
+  @apply rounded-tl-5xl rounded-tr-4xl rounded-br-5xl rounded-bl-4xl;
+}
+
+.rounded-brand-64-32{
+  @apply rounded-tl-4xl rounded-tr-5xl rounded-br-4xl rounded-bl-5xl;
+}
+
+.rounded-brand-16-32{
+  @apply rounded-tl-4xl rounded-tr-2xl rounded-br-4xl rounded-bl-2xl;
+}
+
+.hover-affect-1:hover {
+  @apply bg-theme-3;
+  box-shadow: 0 0 20px 2px rgba(0, 238, 255, 0.25);
+  @apply rounded-tl-4xl rounded-tr-5xl rounded-br-4xl rounded-bl-5xl;
+}
+
+.hover-affect-2:hover {
+  @apply bg-theme-3;
+  box-shadow: 0 0 20px 2px rgba(0, 238, 255, 0.25);
+}
+
+.decor-line{
+  @apply bg-theme-4 rounded-2xl rounded-bl-[5px] rounded-tr-[5px];
+  @apply block h-[5px];
+}
+
+.shadow-1{
+  box-shadow: 0 0 20px 5px rgba(0, 238, 255, 0.25);
+}
+
+.services_tab_active{
+  @apply bg-theme-1;
+  @apply hover:!bg-theme-1;
+}
+
+.services_card_hover:hover{
+  @apply rounded-tl-4xl rounded-tr-5xl rounded-br-4xl rounded-bl-5xl;
+}
+
+.services_card_hover:hover .card_title, .services_card_hover:hover .card_line{
+  @apply rounded-tl-4xl rounded-tr-5xl rounded-br-4xl rounded-bl-5xl;
+}
+
+.liquid-glass{
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.10) inset, 0 0 15px 0 rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(25px);
 }
