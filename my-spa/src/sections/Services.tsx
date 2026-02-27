@@ -1,3 +1,27 @@
+import thumb_site_vizitka from '../assets/img/services/site_vizitka.png'
+
+type Services = {
+    id: number,
+    name: string,
+    cms_name: string,
+    description: string[],
+    price: string,
+    thumb: string,
+    category_id: 1,
+}
+
+const services: Services[] = [
+    {
+        id: 1,
+        name: 'Сайт-визитка',
+        cms_name: 'CMS WordPress',
+        description: ['Подходит для физических лиц', 'начинающих свой бизнес'],
+        price: 'от 59 900 ₽',
+        thumb: thumb_site_vizitka,
+        category_id: 1,
+    }
+]
+
 export default function Services(){
     return (
         <section className="container mb-[58px]">
@@ -11,7 +35,7 @@ export default function Services(){
             </div>
 
             <div className="grid grid-cols-[450px_auto] grid-rows-1 gap-5 mb-5">
-                <div className="bg-theme-5 rounded-brand-32-64 grid grid-cols-1 grid-rows-5 overflow-hidden glass-lic">
+                <div className="bg-theme-5 rounded-brand-32-64 grid grid-cols-1 grid-rows-5 overflow-hidden glass-lic liquid-glass">
                     <a href=""
                        className="font-bold text-2xl text-white flex items-center justify-center border-b border-b-theme-1/50 hover-affect-2 services_tab_active"><span>Разработка сайтов</span></a>
                     <a href=""
@@ -161,7 +185,7 @@ export default function Services(){
 
             <div className="grid grid-cols-[878px_auto] grid-rows-[100px] gap-3">
                 <div
-                    className="bg-theme-5 rounded-brand-32-64 px-16 py-6 bg-[url('./image/element_6.png')] bg-right bg-no-repeat glass-lic">
+                    className="bg-theme-5 rounded-brand-32-64 px-16 py-6 bg-[url('./assets/img/element_6.png')] bg-right bg-no-repeat glass-lic liquid-glass">
                     <div className="font-bold text-xl text-white">Если не нашли подходящую услугу? Не растраивайтесь!
                     </div>
                     <div className="font-bold text-xl text-white">
@@ -170,7 +194,7 @@ export default function Services(){
                     </div>
                 </div>
                 <a href=""
-                   className="btn_modal_request_open bg-theme-1 rounded-brand-32-64 bg-[url('./assets/img/element_7.png')] hover:bg-[200%_50%] bg-right bg-no-repeat flex items-center justify-center hover-affect-1 glass-lic">
+                   className="btn_modal_request_open bg-theme-1 rounded-brand-32-64 bg-[url('./assets/img/element_7.png')] hover:bg-[200%_50%] bg-right bg-no-repeat flex items-center justify-center hover-affect-1 glass-lic liquid-glass">
                     <div>
                         <div className="font-bold text-xl text-white text-center">Обсудить проект</div>
                         <div className="font-raleway text-xs text-white text-center">Оставьте заявку сейчас и получите
